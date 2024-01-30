@@ -21,7 +21,7 @@
     <form>
         <fieldset>
             <legend>Status</legend>
-            @foreach(App\Http\Enums\PetStatus::labels() as $value => $label)
+            @foreach(App\Enums\PetStatus::labels() as $value => $label)
                 <input type="checkbox" id="status-{{ $value }}" name="status[]" value="{{ $value }}" {{ in_array($value, $statuses) ? "checked" : "" }}>
                 <label for="status-{{ $value }}"> {{ $label }} </label><br>    
             @endforeach
@@ -41,7 +41,7 @@
         @foreach($pets as $pet)
             <tr>
                 <td> {{ isset($pet['name']) ? $pet['name'] :  "-"}} </td>
-                <td> {{ isset($pet['status']) ? $pet['status'] :  "-"}} </td>
+                <td> {{ isset($pet['status']) ? App\Enums\PetStatus::tryFrom($pet['status'])?->label() :  "-"}} </td>
                 <td> {{ isset($pet['category']['name']) ? $pet['category']['name'] :  "-"}} </td>
                 <td>
                     @isset($pet['tags'])

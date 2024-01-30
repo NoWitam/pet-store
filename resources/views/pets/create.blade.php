@@ -39,7 +39,7 @@
 
         <label for="status"> Status </label><br>
         <select name="status">
-            @foreach(App\Http\Enums\PetStatus::labels() as $value => $label)
+            @foreach(App\Enums\PetStatus::labels() as $value => $label)
                 <option value="{{ $value }}" @if( old('status', $pet['status'] ?? null) == $value) selected @endif> {{ $label }} </option>
             @endforeach
         </select>
@@ -60,15 +60,4 @@
         @endisset
 
     </form>
-
-
-
-    @isset($pet)
-        <hr>
-        <h1>Dodaj zdjęcie</h1>
-
-        <label for="photos"> Url zdjęć (Wpisuj w oddzielnych liniach) </label><br>
-        <textarea name="photos" id="photos" rows="5"> {{ old('photos', $pet["photos"] ?? "") }} </textarea>
-    @endisset
-
 @endsection

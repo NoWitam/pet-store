@@ -13,7 +13,7 @@
 <h2>Status:</h2> <br>
 <h1> {{ 
         isset($pet['status']) 
-        ? App\Http\Enums\PetStatus::from($pet['status'])->label()
+        ? App\Enums\PetStatus::tryFrom($pet['status'])?->label()
         :  "-"
     }} 
 </h1>

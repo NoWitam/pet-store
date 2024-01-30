@@ -2,7 +2,6 @@
 
 namespace App\Http\Services;
 
-use App\Http\Enums\PetStatus;
 use Illuminate\Support\Facades\Http;
 
 class PetService

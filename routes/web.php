@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\PetController;
-use App\Http\Enums\PetStatus;
+use App\Enums\PetStatus;
 use Illuminate\Support\Facades\Route;
 
 /*

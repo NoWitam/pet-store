@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\Enums;
-
-use Illuminate\Support\Facades\Http;
+namespace App\Enums;
 
 enum PetStatus : string
 {

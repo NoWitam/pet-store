@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Enums\PetStatus;
 use App\Http\Requests\StorePetRequest;
 use App\Http\Services\PetService;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
 
 class PetController extends Controller
 {
@@ -76,8 +74,7 @@ class PetController extends Controller
             $this->petService->find($id),
 
             function($pet) {
-                dd($pet);
-                $pet['tags'] = isset($pet["tag"]) ? implode("\r\n", array_map(
+                $pet['tags'] = isset($pet["tags"]) ? implode("\r\n", array_map(
                     fn($tag) => $tag['name'],
                     $pet['tags']
                 )) : null;
